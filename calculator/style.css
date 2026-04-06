@@ -1,0 +1,150 @@
+:root {
+  --bg: #020617;
+  --panel: #0f172a;
+  --panel-soft: #111827;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.2);
+  --accent: #22c55e;
+  --accent-soft: #16a34a;
+  --operator: #1d4ed8;
+  --action: #7c3aed;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at top, #0f172a 0%, var(--bg) 55%);
+  color: var(--text);
+}
+
+button {
+  font: inherit;
+  border: 0;
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.calculator-wrapper {
+  width: min(100%, 420px);
+}
+
+.calculator-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  margin-bottom: 8px;
+}
+
+.calculator-header h1 {
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  margin-bottom: 10px;
+}
+
+.description {
+  color: var(--muted);
+}
+
+.calculator {
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+.screen {
+  min-height: 110px;
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  word-break: break-all;
+  margin-bottom: 16px;
+}
+
+.previous-operand {
+  min-height: 24px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.current-operand {
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 700;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.buttons button {
+  min-height: 64px;
+  border-radius: 16px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 1.2rem;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.buttons button:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.buttons .operator {
+  background: var(--operator);
+}
+
+.buttons .action {
+  background: var(--action);
+}
+
+.buttons .equals {
+  background: var(--accent-soft);
+  font-weight: 700;
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+@media (max-width: 420px) {
+  .calculator {
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .buttons {
+    gap: 10px;
+  }
+
+  .buttons button {
+    min-height: 58px;
+    font-size: 1.05rem;
+  }
+}
